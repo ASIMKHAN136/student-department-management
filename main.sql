@@ -39,3 +39,34 @@ INSERT INTO students(student_id, name, age, city, marks, dept_id, email, gender)
  (10, 'Sana Mirza',    19, 'Islamabad', 83, 4, 'sana@gmail.com',   'Female'),
  (11, 'Faisal Iqbal',  25, 'Karachi',   67, 5, 'faisal@gmail.com', 'Male'),
  (12, 'Mehwish Tariq', 20, 'Lahore',    91, 2, 'mehwish@gmail.com','Female');
+
+select * from students;
+select name,student_id,email,gender,city,age from students;
+select * from students where marks >80;
+select name,city,marks from students where city = 'lahore' and marks > 80;
+select name ,student_id,marks from students where marks between 60 and 80;
+select name ,city from students where name like  'S%';
+select * from students where gender = 'female' or marks >75;
+select s.name,
+		s.student_id,
+		s.marks,
+        s.city,
+        s.gender,
+        d.dept_name from 
+        students s inner join departments d on s.student_id = s.student_id; 
+select name,min(marks) as avg_marks from students group by name;
+select max(marks) as highes_marks,min(marks) as lowest_marks from students;
+select  max(marks) as highest_marks from students;
+select * from students order by marks desc limit 5;
+select city,count(*) as total from students group by city;
+select name,marks from students order by marks asc limit 5;
+select gender,avg(marks) from students group by gender having gender ='female';
+select * from students where gender = 'female' order by marks desc limit 3 ;
+select name,city ,max(marks) as total from students  where marks > 90 or city = 'lahore' group  by name;
+select count(*) as total_students from students where city = 'lahore';
+select name, marks from students where gender = 'female' order by marks desc limit 3;
+update students set age = 30 where name = 'Sara khan';
+delete from students where name ='sara khan'; 
+select s.name,
+		max(s.marks) as high_marks
+         from students s inner join departments d on s.student_id = d.dept_id where gender = 'male' group by name ;
