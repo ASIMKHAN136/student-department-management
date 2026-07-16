@@ -1,0 +1,37 @@
+# School Database (SQL Project)
+
+A relational database project built in MySQL, modeling a school system 
+with departments and students.
+
+## Database: school3
+
+## Tables (2 total)
+
+### 1. departments
+Stores information about each academic department.
+
+| Column      | Type        | Description              |
+|-------------|-------------|---------------------------|
+| dept_id     | INT (PK)    | Unique department ID      |
+| dept_name   | VARCHAR(50) | Name of the department    |
+| head_name   | VARCHAR(50) | Head of department        |
+| total_seats | INT         | Total seats available     |
+| location    | VARCHAR(50) | Block/location             |
+
+Contains 5 sample departments: Computer Science, Mathematics, Physics, English, Chemistry.
+
+### 2. students
+Stores student records, linked to departments.
+
+| Column     | Type         | Description                        |
+|------------|--------------|-------------------------------------|
+| student_id | INT (PK)     | Unique student ID                   |
+| name       | VARCHAR(50)  | Student name                        |
+| age        | INT          | Student age                         |
+| city       | VARCHAR(50)  | City of residence                   |
+| marks      | INT          | Marks obtained                      |
+| dept_id    | INT (FK)     | References departments(dept_id)     |
+| email      | VARCHAR(100) | Student email                       |
+| gender     | VARCHAR(10)  | Male/Female                         |
+
+Contains 12 sample students, each linked to a department.
